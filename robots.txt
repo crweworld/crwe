@@ -1,0 +1,6 @@
+User-Agent: *
+Disallow: /category/39/news-provided-by-business-wire
+
+Sitemap: http://crweworld.com/sitemaps/sitemap-1.xml.gz
+Sitemap: http://crweworld.com/sitemaps/sitemap-2.xml.gz
+Sitemap: http://crweworld.com/sitemaps/sitemap-3.xml.gz

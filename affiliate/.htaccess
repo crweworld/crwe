@@ -1,0 +1,22 @@
+# NC makes the rule non case sensitive
+# L makes this the last rule that this specific condition will match
+# $ in the regular expression makes the matching stop so that "customblah" will not work
+
+# Turn Rewrite Engine On
+RewriteEngine On
+Options -Indexes
+
+# Rewrite for verify.php
+RewriteRule ^verify/([0-9]+)/([0-9a-z-]+)$ assets/php/verify.php?id=$1&verify=$2 [NC,L]
+
+# Rewrite for check.php
+RewriteRule ^([0-9a-z-]+)$ referal.php?username=$1 [NC,L]
+
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>
+RewriteCond %{HTTP_HOST} ^affiliate\.crweworld\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.affiliate\.crweworld\.com$
+RewriteRule ^/?$ "http\:\/\/crweworld\.com\/" [R=302,L]
+

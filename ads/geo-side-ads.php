@@ -1,0 +1,1 @@
+<?php if($nav !="index.php"){ ?><div class="banner-adv-1 mbxl"> <?php include('300ad.php'); ?></div> <?php }?> <?php include('3geo-ads.php'); ?><div class="banner-adv-1 mbxl"> <?php include('local-geo.php'); ?></div> <?php if($nav !="index.php"){ ?><div class="banner-adv-1 mbxl"> <?php include('300ad.php'); ?></div> <?php } ?>

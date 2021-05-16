@@ -1,0 +1,66 @@
+/* Foundation v2.1.4 http://foundation.zurb.com */
+/* Artfully masterminded by ZURB  */
+
+/* -------------------------------------------------- 
+   Table of Contents
+-----------------------------------------------------
+:: Shared Styles
+:: Page Name 1
+:: Page Name 2
+*/
+
+
+/* -----------------------------------------
+   Shared Styles
+----------------------------------------- */
+
+table th { font-weight: bold; }
+table td, table th { padding: 9px 10px; text-align: left; }
+
+
+
+/* Mobile */
+@media only screen and (max-width: 800px) {
+	
+	 ::-webkit-scrollbar {
+    width: 12px !important;
+ }
+
+ /* Track */
+::-webkit-scrollbar-track {
+   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3) !important;
+   -webkit-border-radius: 10px !important;
+   border-radius: 10px !important;
+ }
+
+ /* Handle */
+ ::-webkit-scrollbar-thumb {
+   -webkit-border-radius: 10px !important;
+   border-radius: 10px !important;
+   background: #CC0101 !important; 
+   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5) !important; 
+
+ }
+ ::-webkit-scrollbar-thumb:window-inactive {
+   background: #CC0101 !important; 
+ }
+ 
+	
+	table.responsive { margin-bottom: 0; }
+	
+	.pinned { position: absolute; left: 0; top: 0; background: #fff; width: 35%; overflow: hidden; overflow-x: scroll; border-right: 1px solid #ccc; border-left: 1px solid #ccc; }
+	.pinned table { border-right: none; border-left: none; width: 100%; }
+	.pinned table th, .pinned table td { white-space: nowrap; }
+	.pinned td:last-child { border-bottom: 0; }
+	
+	div.table-wrapper { position: relative; margin-bottom: 20px; overflow: hidden; border-right: 1px solid #ccc; }
+	div.table-wrapper div.scrollable { margin-left: 35%; }
+	div.table-wrapper div.scrollable { overflow: scroll; overflow-y: hidden; }	
+	
+	table.responsive td, table.responsive th { position: relative; white-space: nowrap; overflow: hidden; }
+	table.responsive th:first-child, table.responsive td:first-child, table.responsive td:first-child, table.responsive.pinned td { display: none; }
+	
+	
+	
+	
+}

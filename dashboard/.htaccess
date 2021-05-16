@@ -1,0 +1,42 @@
+# NC makes the rule non case sensitive
+# L makes this the last rule that this specific condition will match
+# $ in the regular expression makes the matching stop so that "customblah" will not work
+
+
+# Turn Rewrite Engine On
+RewriteEngine on
+
+Options -Indexes
+
+# Rewrite for login.php
+RewriteRule ^login$ login.php [NC,L]
+
+# Rewrite for post_it
+RewriteRule ^post_it$ post_it.php [NC,L]
+
+# Rewrite for reset
+RewriteRule ^reset$ reset.php [NC,L]
+
+# Rewrite for activate
+RewriteRule ^activate$ active_it.php [NC,L]
+
+# Rewrite for verify_chat.php
+RewriteRule ^verify_chat/([0-9a-z-]+)$ subs/verify.php?chatid=$1 [NC,L]
+
+# Rewrite for verify.php
+RewriteRule ^verify/([0-9a-z-]+)$ subs/verify.php?verify=$1 [NC,L]
+
+# Rewrite for confirmation.php
+RewriteRule ^confirmation/([0-9a-z-]+)$ subs/verify.php?confirmation=$1 [NC,L]
+
+ErrorDocument 404 /404.php
+
+
+
+
+
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>
+

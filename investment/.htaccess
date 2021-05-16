@@ -1,0 +1,46 @@
+# NC makes the rule non case sensitive
+# L makes this the last rule that this specific condition will match
+# $ in the regular expression makes the matching stop so that "customblah" will not work
+
+# Turn Rewrite Engine On
+RewriteEngine on
+RewriteBase /
+
+Options -Indexes
+
+RewriteCond %{HTTPS} !on
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} 
+#RewriteRule (.*) http://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+<IfModule mod_deflate.c>
+<FilesMatch "\.(ico|jpg|jpeg|png|gif|js|css|html|php|txt|xml)$">
+SetOutputFilter DEFLATE
+</FilesMatch>
+</IfModule>
+
+RewriteRule ^verify/([0-9a-z-]+)$ pages/verify.php?verify=$1 [NC,L]
+
+RewriteRule ^company$ company.php [NC,L]
+RewriteRule ^proposals$ proposals.php [NC,L]
+RewriteRule ^search$ proposals.php [NC,L]
+RewriteRule ^privacy$ privacy.php [NC,L]
+RewriteRule ^terms$ terms.php [NC,L]
+RewriteRule ^privacy_policy$ privacy.php [NC,L]
+
+RewriteRule ^contact$ contact.php [NC,L]
+RewriteRule ^entrepreneurs$ entrepreneur.php [NC,L]
+RewriteRule ^investors$ investor.php [NC,L]
+RewriteRule ^saveit$ pages/saveit.php [NC,L]
+
+
+RewriteRule ^dashboard/login$ dashboard/login.php [NC,L]
+RewriteRule ^dashboard/profile$ dashboard/profile.php [NC,L]
+RewriteRule ^dashboard/proposal$ dashboard/proposal.php [NC,L]
+RewriteRule ^dashboard/saved$ dashboard/saved.php [NC,L]
+RewriteRule ^dashboard/view$ dashboard/view.php [NC,L]
+RewriteRule ^dashboard/viewprofile$ dashboard/profile.php [NC,L]
+
+
+
+
+

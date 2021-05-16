@@ -1,0 +1,257 @@
+# NC makes the rule non case sensitive
+# L makes this the last rule that this specific condition will match
+# $ in the regular expression makes the matching stop so that "customblah" will not work
+
+# Turn Rewrite Engine On
+RewriteEngine on
+RewriteBase /
+
+Options -Indexes
+
+RewriteCond %{HTTPS} on
+RewriteRule (.*) http://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+<IfModule mod_deflate.c>
+<FilesMatch "\.(ico|jpg|jpeg|png|gif|js|css|html|php|txt|xml)$">
+SetOutputFilter DEFLATE
+</FilesMatch>
+</IfModule>
+
+RewriteRule ^live-traffic$ Live-Traffic.php [NC,L]
+RewriteRule ^article/secondary/185085/increase-your-awareness-with-crweworld-$ Live-Traffic.php [NC,L]
+RewriteRule ^stock-track$ stock-track.php [NC,L]
+RewriteRule ^search-the-web$ search-the-web.php [NC,L]
+
+
+
+ 
+
+
+#temp articel
+RewriteRule ^article/news-provided-by-accesswire/1433826/leveraged-etf-launched-by-mxc-exchange-is-becoming-an-innovator-in-bitcoin-halving$ /home [NC,L]
+RewriteRule ^uganda/eastern/kaberamaido/localnews/world/1674366/financial-expert-be-careful-the-inquisitive-example-of-high-west-capital-partners-$ /home [NC,L]
+
+
+RewriteRule ^podcast$ podcast.php [NC,L]
+RewriteRule ^podcast/([0-9a-zA-Z_-]+)$ poduser.php?poduser=$1 [NC,L]
+RewriteRule ^podcast/([0-9]+)/([0-9a-zA-Z_-]+)$ podview.php?podid=$1&podtitle=$2 [QSA,L]
+RewriteRule ^podplayer/([0-9]+)$ subs/audio_embed.php?podid=$1 [QSA,L]
+
+# Rewrite for articles
+RewriteRule ^article/([0-9a-zA-Z_-]+)/([0-9]+)/([0-9a-zA-Z_-]+)$ articles.php?post_id=$2&post_title=$3 [NC,L]
+
+# Rewrite for localnews
+RewriteRule ^([0-9a-z-]+)/([0-9a-z-]+)/([0-9a-z-]+)/localnews/([0-9a-zA-Z_-]+)/([0-9]+)/([0-9a-zA-Z_-]+)$ articles.php?post_country=$1&post_state=$2&post_city=$3&cat_name=$4&post_id=$5&post_title=$6 [NC,L]
+
+RewriteRule ^([0-9a-z-]+)/([0-9a-z-]+)/([0-9a-z-]+)/([0-9a-z-]+)/localnews/([0-9a-zA-Z_-]+)/([0-9]+)/([0-9a-zA-Z_-]+)$ articles.php?post_country=$1&post_state=$2&post_city=$3&post_local=$4&cat_name=$5&post_id=$6&post_title=$7 [NC,L]
+
+# Rewrite for trending
+RewriteRule ^([0-9a-z-]+)/trendingnow/([0-9a-zA-Z_-]+)/([0-9]+)/([0-9a-zA-Z_-]+)$ articles.php?post_location=$1&cat_name=$2&post_id=$3&post_title=$4 [NC,L]
+
+# Rewrite for category
+RewriteRule ^category/([0-9]+)/([0-9a-zA-Z_-]+)$ category.php?cat_id=$1&cat_title=$2 [NC,L]
+
+# Rewrite for trending cat
+RewriteRule ^trendingnow$ category.php?cat_type=trendingnow [NC,L]
+
+# Rewrite for localnews cat
+RewriteRule ^localnews$ category.php?cat_type=localnews [NC,L]
+
+
+RewriteRule ^user/([0-9a-zA-Z_-]+)$ user.php?username=$1 [NC,L]
+RewriteRule ^symbol/([0-9a-zA-Z._-]+)$ symbol.php?symbol=$1 [NC,L]
+RewriteRule ^reply/([0-9]+)$ reply.php?ref_id=$1 [NC,L]
+RewriteRule ^user/([0-9a-zA-Z_-]+)/message/([0-9]+)$ user.php?username=$1&msg_id=$2 [NC,L]
+
+
+
+RewriteRule ^Hottest-Stocks-Today$ Hottest-Stocks-Today.php [NC,L]
+RewriteRule ^Earnings-Calendar$ Earnings-Calendar.php [NC,L]
+
+# Rewrite for more.php
+RewriteRule ^more$ more.php [NC,L]
+
+# Rewrite for search.php
+RewriteRule ^search$ search.php [NC,L]
+
+# Rewrite for chat.php
+RewriteRule ^chat$ chat.php [NC,L]
+
+# Rewrite for contact.php
+RewriteRule ^contact$ contact.php [NC,L]
+
+# Rewrite for games.php
+RewriteRule ^games$ games.php [NC,L]
+
+# Rewrite for game.php
+RewriteRule ^game/([0-9]+)$ game.php?game_id=$1 [NC,L]
+
+# Rewrite for Fundraising Campaigns.php
+RewriteRule ^fundraising$ stock.php [NC,L]
+
+# Rewrite for index.php
+RewriteRule ^([0-9a-z-]+)/([0-9a-z-]+)/([0-9a-z-]+)/([0-9]+)/home$ index.php?post_country=$1&post_state=$2&post_city=$3&loc_id=$4 [NC,L]
+
+# Rewrite for job.php
+RewriteRule ^job$ job.php [NC,L]
+
+# Rewrite for contribute.php
+RewriteRule ^contribute$ contribute.php [NC,L]
+
+# Rewrite for verify_chat.php
+RewriteRule ^verify_chat/([0-9a-z-]+)$ subs/verify.php?chatid=$1 [NC,L]
+
+# Rewrite for verify.php
+RewriteRule ^verify/([0-9a-z-]+)$ subs/verify.php?verify=$1 [NC,L]
+
+# Rewrite for confirmation.php
+RewriteRule ^confirmation/([0-9a-z-]+)$ subs/verify.php?confirmation=$1 [NC,L]
+
+# Rewrite for services_rate
+RewriteRule ^services_rate$ services_rate.php [NC,L]
+
+# Rewrite for paypal_notify
+RewriteRule ^paypal_notify$ subs/paypal/paypal_notify.php [NC,L]
+
+# Rewrite for status_cancel
+RewriteRule ^payment_fail$ subs/paypal/status_cancel.php [NC,L]
+
+# Rewrite for thank_you
+RewriteRule ^thank_you$ subs/paypal/thank_you.php [NC,L]
+
+# Rewrite for click_tracker.php
+RewriteRule ^click_tracker/([0-9a-z-]+)/([0-9]+)$ subs/click_tracker.php?hash_key=$1&ban_id=$2 [NC,L]
+
+# Rewrite for g_click_tracker.php
+RewriteRule ^g_click_tracker/([0-9a-z-]+)/([0-9a-z-]+)$ subs/g_click_tracker.php?hash_key=$1&ban_id=$2 [NC,L]
+
+# Rewrite for p_click_tracker.php
+RewriteRule ^p_click_tracker/([0-9a-z-]+)/([0-9a-z-]+)$ subs/p_click_tracker.php?hash_key=$1&pop_id=$2 [NC,L]
+
+#Rewrite for gp_click_tracker.php
+RewriteRule ^gp_click_tracker/([0-9a-z-]+)/([0-9a-z-]+)$ subs/gp_click_tracker.php?hash_key=$1&pop_id=$2 [NC,L]
+
+# Rewrite for horoscope.php
+RewriteRule ^horoscope$ horoscope.php [NC,L]
+
+# Rewrite for sudoku.php
+RewriteRule ^sudoku$ sudoku.php [NC,L]
+
+# Rewrite for crossword.php
+RewriteRule ^crossword$ dailycrossword.php [NC,L]
+
+# Rewrite for location.php
+RewriteRule ^location$ location.php [NC,L]
+
+# Rewrite for legislators.php
+RewriteRule ^legislators$ legislators.php [NC,L]
+
+# Rewrite for member_profile.php
+RewriteRule ^member_profile/([0-9a-zA-Z_-]+)$ member_profile.php?leg_id=$1 [NC,L]
+
+# Rewrite for legislators
+RewriteRule ^legislators/([^/.]+)/([0-9]+)/([0-9]+)$ legislators.php?search_leg=$1&goto=$2&range=$3 [NC,L]
+
+
+
+
+
+
+
+
+# Rewrite for watch
+RewriteRule ^watch/([0-9]+)/([0-9a-zA-Z_-]+)$ watch_video.php?vid_id=$1&vid_title=$1 [NC,L]
+
+# Rewrite for videos
+RewriteRule ^videos$ videos.php? [NC,L]
+
+# Rewrite for channel
+RewriteRule ^channel/([0-9]+)/([0-9a-zA-Z_-]+)$ channel.php?vc_id=$1&vc_title=$1 [NC,L]
+
+
+
+# Rewrite for crownequityholdings
+RewriteRule ^crownequityholdings$ gotoPage.php?crwe=http://crownequityholdings.com [NC,L]
+
+# Rewrite for amsantoslaw
+RewriteRule ^amsantoslaw$ gotoPage.php?crwe=http://amsantoslaw.com [NC,L]
+
+# Rewrite for avotconf
+RewriteRule ^avotconf$ gotoPage.php?crwe=http://avotconf.com [NC,L]
+
+# Rewrite for avotube
+RewriteRule ^avotube$ gotoPage.php?crwe=http://avotube.com [NC,L]
+
+# Rewrite for medicalmarijuana
+RewriteRule ^medicalmarijuana$ gotoPage.php?crwe=http://medicalmarijuana.crwe-pr.com [NC,L]
+
+# Rewrite for crwedomains
+RewriteRule ^crwedomains$ gotoPage.php?crwe=http://crwedomains.com/ [NC,L]
+
+# Rewrite for crwenewswire
+RewriteRule ^crwenewswire$ gotoPage.php?crwe=http://crwenewswire.com [NC,L]
+
+# Rewrite for crwepr
+RewriteRule ^crwepr$ gotoPage.php?crwe=http://crwepr.com [NC,L]
+
+# Rewrite for crwe-pr
+RewriteRule ^crwe-pr$ gotoPage.php?crwe=http://crwe-pr.com [NC,L]
+
+# Rewrite for finance
+RewriteRule ^finance$ gotoPage.php?crwe=http://finance.crwe-pr.com [NC,L]
+
+# Rewrite for crwepressrelease
+RewriteRule ^crwepressrelease$ gotoPage.php?crwe=http://crwepressrelease.com [NC,L]
+
+# Rewrite for crwetube
+RewriteRule ^crwetube$ gotoPage.php?crwe=http://crwetube.com [NC,L]
+
+# Rewrite for ib2bglobal
+RewriteRule ^ib2bglobal$ gotoPage.php?crwe=http://ib2bglobal.com [NC,L]
+
+# Rewrite for marketprofitupdate
+RewriteRule ^marketprofitupdate$ gotoPage.php?crwe=http://marketprofitupdate.com [NC,L]
+
+# Rewrite for roxzu
+RewriteRule ^roxzu$ roxzu.php [NC,L]
+
+# Rewrite for curbiz
+RewriteRule ^curbiz$ curbiz.php [NC,L]
+
+# Rewrite for crwerealestate
+RewriteRule ^crwerealestate$ crwerealestate.php [NC,L]
+
+# Rewrite for terms
+RewriteRule ^terms_conditions$ terms.php [NC,L]
+
+# Rewrite for privacy
+RewriteRule ^privacy_policy$ privacy.php [NC,L]
+
+# Rewrite for Disclaimer
+RewriteRule ^finance_disclaimer$ disclaimer.php [NC,L]
+
+# Rewrite for about
+RewriteRule ^about_us$ about.php [NC,L]
+
+# Rewrite for sitemap-1
+RewriteRule ^sitemaps/sitemap-1.xml$ sitemaps/sitemap-1.php [NC,L]
+
+# Rewrite for sitemap-2
+RewriteRule ^sitemaps/sitemap-2.xml$ sitemaps/sitemap-2.php [NC,L]
+
+# Rewrite for sitemap-3
+RewriteRule ^sitemaps/sitemap-3.xml$ sitemaps/sitemap-3.php [NC,L]
+
+
+ErrorDocument 404 /404.php
+
+
+
+
+
+
+
+
+
+
+

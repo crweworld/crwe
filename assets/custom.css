@@ -1,0 +1,307 @@
+#wrapper .banner .bnr-btn{    margin-top: 20px;
+    margin-bottom: 20px}
+#wrapper .banner-bottom {margin-top: 8%;}
+#wrapper .banner-left{
+	text-align:center;
+}
+#wrapper .banner-right {
+  margin-top: 0%;
+}
+#wrapper .banner-right h1{
+	color: #000;
+	font-size: 2.3em;
+	font-weight: 300;
+	margin: 0;
+}
+#wrapper .banner-right h1 span{
+	font-weight:700;
+}
+#wrapper .banner-right h2 span{
+	font-weight:700;
+}
+#wrapper .banner-right h2 {
+  font-size: 1.5em;
+  font-weight: 400;
+  color: #000;
+  margin-top: 1.8%;
+}
+#wrapper .banner-right p {
+  color: #000;
+  font-size: 17px;
+  line-height: 1.38em;
+  padding-right: 3em;
+  margin-top: 10%;
+  font-weight: 600;
+  margin-bottom: -5%;
+}
+#wrapper .bnr-btn a {
+	-webkit-transition: all 1000ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	-moz-transition: all 1000ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	-ms-transition: all 1000ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	-o-transition: all 1000ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	transition: all 1000ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	display: block;
+	margin: 50px auto;
+	max-width: 180px;
+	text-decoration: none;
+	padding: 15px 20px;
+	background-color: #cc0101;
+	border: 1px solid #ffe40f;
+	
+}
+#wrapper .bnr-btn a.button2 {
+	color: #fff;
+    	
+}
+#wrapper .bnr-btn a.button2:hover {
+	color: rgba(255, 255, 255, 0.85);
+	box-shadow: rgba(0, 0, 0, 0.7) 0 0px 0px 40px inset;
+}
+
+@-webkit-keyframes glowing {
+  0% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; -webkit-box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+}
+
+@-moz-keyframes glowing {
+  0% { background-color: #B20000; -moz-box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; -moz-box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; -moz-box-shadow: 0 0 3px #B20000; }
+}
+
+@-o-keyframes glowing {
+  0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+}
+
+@keyframes glowing {
+  0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+}
+
+#wrapper .bnr-btn a.blink {
+  -webkit-animation: glowing 1500ms infinite;
+  -moz-animation: glowing 1500ms infinite;
+  -o-animation: glowing 1500ms infinite;
+  animation: glowing 1500ms infinite;
+}
+#wrapper .banner-right ul{
+	padding:0;
+	margin-top: 8.5%;
+}
+#wrapper .banner-right ul li{
+	list-style:none;
+	display:inline-block;
+}
+#wrapper .banner-right ul li:nth-child(1){
+	margin-right:17px;
+}
+#wrapper .banner-right ul li span{
+	background:url(../images/bnr-sprit.png) no-repeat;
+	width:42px;
+	height:48px;
+	display:block;
+	transition: 0.5s all ease;
+	-webkit-transition: 0.5s all ease;
+	-moz-transition: 0.5s all ease;
+	-o-transition: 0.5s all ease;
+	-ms-transition: 0.5s all ease;
+}
+#wrapper .banner-right ul li span.apl{
+	background-position:0px 0px;
+}
+#wrapper .banner-right ul li span.rbt{
+	background-position:-42px 0px;
+}
+#wrapper .banner-right ul li span.apl:hover{
+	background-position:0px -48px;
+}
+#wrapper .banner-right ul li span.rbt:hover{
+	background-position:-42px -48px;
+}
+
+.leg-heading
+{
+	    text-align: center;
+}
+
+.byline p {
+    text-align: center;
+    font-size: 12px;
+    color: #777;
+    text-shadow: 0 2px 3px rgba(0,0,0,0.1);
+  
+}
+.byline p a {
+    color: #CC0101;
+    text-decoration: none;
+}
+
+
+
+
+/* media query */
+
+@media screen and (max-width: 1024px)
+{
+	.topbar-right span.txt{
+		display: none;
+	}
+	
+	
+}
+
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait) {
+   /* your css rules for ipad portrait */
+   
+   #search-result span{
+		display: none;
+	}
+	
+}
+  
+  
+
+
+@media screen and (max-width: 768px)
+{
+	#wrapper .content .container .col-left #hot-topics .section-content .col-md-6.col-sm-6 .title 
+	{
+		width: 100%;
+		padding-left: 0px !important;
+	}
+	
+	#wrapper .content .container .col-left #hot-topics .section-content .col-md-6.col-sm-6 .info {
+    
+    width: 100%;
+	padding-left: 0px !important;
+}
+
+
+	
+	#wrapper .content .container .col-left #hot-topics .hot-topics-list .media {
+		
+		padding-left: 0;
+	}
+	#hot-topics .hot-topics-list .media {
+		padding-bottom: 15px !important;
+	}
+	
+	
+	#wrapper .content .container .col-right #weather-news .section-content .today-weather .temp {
+		font-size: 30px;
+	}
+	
+	#city-weather-description {
+    
+		line-height: 20px; 
+	}
+	#legislators-search span {
+		display: none;
+	}
+	
+	.thumb .caption {font-size: 10px;}
+	
+}
+
+
+@media screen and (max-width: 600px)
+{	
+	
+	#page-header #header .header-logo-banner {
+		display: block ;
+	}
+	
+	.banner .header{
+		margin-top: 10% !important;	
+	}
+	
+	.banner .header .logo{
+		/* display: none; */
+		padding-bottom:15px		
+	}
+	
+	.header-topbar .col-xs-12
+	{
+		    padding: 0px !important;
+	}
+	
+	/* #page-header #header .header-logo-banner .logo img {
+    width: 60% !important;
+	} */
+	
+	#page-header #header .header-logo-banner .banner-adv {
+		
+		display: none !important ;
+	}
+	
+	.tag_logo {
+		
+		/* display: none !important ; */
+	}
+	
+	#page-header #header .header-logo-banner {
+		height: 0 !important;
+	}
+
+	#page-header #header .header-menu .menu-responsive {
+	            top: 0px !important;
+	}
+
+	#page-header #header .header-menu #menu {
+		top: 50px !important;
+	}
+	
+	/* .img-responsive {
+		margin: 0 auto;
+	} */
+
+	.banner-bottom {
+		margin-top: 8%;
+	}
+
+	.bnr-btn a {
+		margin: 20px auto 0px !important;
+		padding: 10px 20px;
+		font-size: 15px;	
+	}
+	
+	#legislators-search span{
+		display:none;
+	}
+	
+	.leg-heading
+	{
+			text-align: center;
+			margin-top:15%;
+	}
+	.media-heading {
+		    margin-top: 5px;
+	}
+	#wrapper .content .container .col-left #result-list .media .media-left img {
+		width: 100%;
+		display: block;
+		max-width: 100%;
+		height: auto;
+		margin: 0 auto
+	}
+	#content-news .info-news .comments,#content-news .info-news .share-link{margin-left:1px}
+
+}
+
+@media screen and (orientation:landscape) {
+    /* Landscape styles */
+	
+	
+	
+	
+}
+
+@media only screen and (max-device-width: 667px) 
+    and (-webkit-device-pixel-ratio: 2) {
+		
+		
+	}
