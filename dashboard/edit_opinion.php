@@ -136,7 +136,7 @@ $cat_id2=mysqli_real_escape_string($GLOBALS["___mysqli_ston"], $_POST['cat_id2']
                       <label for="Category">Category *</label>                      
                       <select class="form-control" name="cat_id2">
                       <option value="">-Change Category-</option>
-                      	<?php $cat_id = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM category where cat_id in (20,21,22,23,38,44)") or die(mysqli_error($GLOBALS["___mysqli_ston"])); 
+                      	<?php $cat_id = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM category where cat_id in (20,21,22,23,38,44,46)") or die(mysqli_error($GLOBALS["___mysqli_ston"])); 
 						while($cat_result = mysqli_fetch_array($cat_id))
 						{
 							$cat_name2=$cat_result['cat_name'];
