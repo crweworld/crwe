@@ -117,7 +117,7 @@ if (isset($_GET['del_me'])and isset($_GET['check']) and ($_GET['check'])!="" )
 					list($date1, $date2) = explode('-', $_GET['date']);					
 					$date1= str_replace("/","-","$date1");
 					$date2= str_replace("/","-","$date2");
-					$posts = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM posts WHERE cat_id in (16,19,20,21,22,24,26,27,30,31,33,34,35,36,37,38,39,40,41,42,44,45,46) and user_id={$_SESSION['pub_id']} and post_doc BETWEEN CAST('$date1' AS DATE) AND CAST('$date2' AS DATE) ORDER BY post_id DESC") or die(mysqli_error($GLOBALS["___mysqli_ston"])); 
+					$posts = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM posts WHERE cat_id in (16,19,20,21,22,23,24,26,27,30,31,33,34,35,36,37,38,39,40,41,42,44,45,46) and user_id={$_SESSION['pub_id']} and post_doc BETWEEN CAST('$date1' AS DATE) AND CAST('$date2' AS DATE) ORDER BY post_id DESC") or die(mysqli_error($GLOBALS["___mysqli_ston"])); 
 					
 					
 					while($results = mysqli_fetch_array($posts))
