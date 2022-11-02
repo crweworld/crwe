@@ -6,7 +6,19 @@ header('Content-Type: text/html; charset=iso-8859-1');
 header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
 header('Pragma: no-cache');
 $xml=("http://www.media-outreach.com/release.php/RSS/crweworld.com/24537?language=en");
-$content = file_get_contents($xml);
+//$content = file_get_contents($xml);
+function url_get_contents ($Url) {
+    if (!function_exists('curl_init')){ 
+        die('CURL is not installed!');
+    }
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $Url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $output = curl_exec($ch);
+    curl_close($ch);
+    return $output;
+}
+$content = url_get_contents($xml);
 $rss = new SimpleXmlElement($content);
 
 foreach ($rss->entry as $item)
@@ -37,7 +49,7 @@ foreach ($rss->entry as $item)
 		$post_url=  "/article/".txtcleaner($cat_name)."/".$post_id."/".txtcleaner($post_title);
 		mysqli_query($GLOBALS["___mysqli_ston"], "UPDATE `posts` SET `post_url`='$post_url' where post_id='$post_id'");
 		 //Auto share
-		include('/home/crweworld/public_html/admin/auto_share/twitter.php');			
+		//include('/home/crweworld/public_html/admin/auto_share/twitter.php');			
 		//include('/home/crweworld/public_html/admin/auto_share/facebook.php');
 		echo '<b>Posted</b> -> '. $post_title. '<br>';
 	} 
