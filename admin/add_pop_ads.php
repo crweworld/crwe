@@ -27,7 +27,7 @@ if($_SESSION['group']!=("superadmin" or "miniadmin"))
 	
 	
 	$ad_doc=date("Y-m-d") ;
-	$hash=bin2hex(mcrypt_create_iv(22, MCRYPT_DEV_URANDOM));
+	$hash=serialize(bin2hex(random_bytes(9)));
 	
 	
 		$_SESSION['width']=300; $_SESSION['height']=200;

@@ -112,7 +112,7 @@ if(isset($comment) or isset($comment_md)){
 				$file_type=$_FILES['stock_image']['type'][$key];	
 				$kaboom = explode(".", $file_name); // Split file name into an array using the dot
 				$fileExt = strtolower(end($kaboom));
-				$hash=bin2hex(mcrypt_create_iv(22, MCRYPT_DEV_URANDOM));
+				$hash=serialize(bin2hex(random_bytes(9)));
 
 				$dirPath = "../assets/images/$dpath/{$_SESSION['pub_id']}";
 				if (!file_exists("$dirPath")){mkdir("$dirPath", 0755, true);}	

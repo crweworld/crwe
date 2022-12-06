@@ -47,7 +47,7 @@ if ( isset( $_POST[ 'login' ] ) ) {
   foreach ( $_POST as $key => $value ) {
     $_SESSION[ $key ] = $$key = mysqli_real_escape_string( $GLOBALS[ "___mysqli_ston" ], $value );
   }
-  $hash = bin2hex( mcrypt_create_iv( 22, MCRYPT_DEV_URANDOM ) );
+  $hash =serialize(bin2hex(random_bytes(9)));
   $doc = date( "Y-m-d" );
 
   $sql = "SELECT * FROM user WHERE email='$email'";

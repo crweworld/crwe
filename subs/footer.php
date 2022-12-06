@@ -10,7 +10,7 @@ if(isset($_POST['subsc']))
 	$sum11=mysqli_real_escape_string($GLOBALS["___mysqli_ston"], $_POST['sum11']);
 	$sum1=mysqli_real_escape_string($GLOBALS["___mysqli_ston"], $_POST['sum1']);
 	$sub_date = date("Y-m-d");
-	$hash=bin2hex(mcrypt_create_iv(22, MCRYPT_DEV_URANDOM));
+	$hash=serialize(bin2hex(random_bytes(9)));
 	
 	$sql="SELECT * FROM subscribers WHERE email='$subscribe'";
 	$result=mysqli_query($GLOBALS["___mysqli_ston"], $sql);

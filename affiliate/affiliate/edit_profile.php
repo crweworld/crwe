@@ -118,7 +118,7 @@ if(isset($_POST['edit_user']))
 	
 	if(isset($_FILES['dp']) and ($_FILES['dp']['size']>0))
 		{ 
-			$hash=bin2hex(mcrypt_create_iv(22, MCRYPT_DEV_URANDOM));
+			$hash=serialize(bin2hex(random_bytes(9)));
 					$errors= array();					
 					$file_name = strtolower($_FILES['dp']['name']);
 					$file_size =$_FILES['dp']['size'];
