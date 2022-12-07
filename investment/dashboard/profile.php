@@ -69,7 +69,7 @@ if(!isset($_GET['id'])){
 		{
 			if(isset($_FILES['pic']) and ($_FILES['pic']['size']>0))
 			{ 
-				$hash=serialize(bin2hex(random_bytes(9)));
+				$hash=(bin2hex(random_bytes(9)));
 				if($pic!=''){del_pic('..'.$pic);}	
 				$dirPath = "../assets/user/{$_SESSION['pub_id']}/";
 				if (!file_exists("$dirPath")) 

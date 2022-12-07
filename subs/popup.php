@@ -6,7 +6,7 @@ if(isset($_POST['sub_pop']))
 	$code=mysqli_real_escape_string($GLOBALS["___mysqli_ston"], $_POST['code']);
 	$code1=mysqli_real_escape_string($GLOBALS["___mysqli_ston"], $_POST['code1']);
 	$sub_date = date("Y-m-d");
-	$hash=serialize(bin2hex(random_bytes(9)));
+	$hash=(bin2hex(random_bytes(9)));
 	
 	$sql="SELECT * FROM subscribers WHERE email='$subscribe'";
 	$result=mysqli_query($GLOBALS["___mysqli_ston"], $sql);

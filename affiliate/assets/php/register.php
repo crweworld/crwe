@@ -56,7 +56,7 @@ if($_POST)
         die($output);
     }
 	
-	$hash=serialize(bin2hex(random_bytes(9)));
+	$hash=(bin2hex(random_bytes(9)));
 	$doc = date("Y-m-d");
 
 	$insert_ok = mysql_query("INSERT INTO `affi_user`(`doc`, `active`, `email`,`hash`, `password`) VALUES ('$doc','0', '$email','$hash', '$password')")or die(mysql_error());

@@ -23,7 +23,7 @@ if(isset($_GET['verify']))
 	}
 	else if($count==1)
 	{
-		$hash=serialize(bin2hex(random_bytes(9)));
+		$hash=(bin2hex(random_bytes(9)));
 		
 		$update_ok = mysql_query("UPDATE `affi_user` SET `active`='1' , `hash`='$hash' where `hash`='{$_GET['verify']}'")or die(mysql_error());
 		if($update_ok == 1)

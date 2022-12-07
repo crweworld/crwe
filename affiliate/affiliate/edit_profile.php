@@ -118,7 +118,7 @@ if(isset($_POST['edit_user']))
 	
 	if(isset($_FILES['dp']) and ($_FILES['dp']['size']>0))
 		{ 
-			$hash=serialize(bin2hex(random_bytes(9)));
+			$hash=(bin2hex(random_bytes(9)));
 					$errors= array();					
 					$file_name = strtolower($_FILES['dp']['name']);
 					$file_size =$_FILES['dp']['size'];
@@ -417,7 +417,7 @@ $(document).ready(function(){
                     </div>
                     <div class="form-group col-md-6">
                       <label>Affiliate Type <span class="red-star">*</span></label> &nbsp; &nbsp;
-                       <select id="organization" class="form-control" name="type" required="required">
+                       <select id="organization" class="form-control" name="type" required>
                         <option value="">Select</option>
                         <option <?php if(isset($_SESSION['type'])){ if($_SESSION['type']=='I'){echo 'selected';}} else if($results['type']=='I'){echo 'selected';}?> value="I" >Individual</option>
                         <option <?php if(isset($_SESSION['type'])){ if($_SESSION['type']=='O'){echo 'selected';}} else if($results['type']=='O'){echo 'selected';}?> value="O">Organization</option>
@@ -433,7 +433,7 @@ $(document).ready(function(){
                     </div>
                   <div class="form-group col-md-6">
                       <label>Address <span class="red-star">*</span></label> &nbsp; &nbsp;
-                      <textarea class="form-control" name="address" placeholder="Enter Your Street Address" required="required"><?php if(isset($_SESSION['address'])){ echo $_SESSION['address']; } else{ echo $results['address'];} ?></textarea>
+                      <textarea class="form-control" name="address" placeholder="Enter Your Street Address" required><?php if(isset($_SESSION['address'])){ echo $_SESSION['address']; } else{ echo $results['address'];} ?></textarea>
                     </div>
                     <div class="form-group col-md-6">
                       <label>City <span class="red-star">*</span></label> &nbsp; &nbsp;
@@ -447,7 +447,7 @@ $(document).ready(function(){
                 
                      <div class="form-group col-md-6">
                       <label>Country <span class="red-star">*</span></label> &nbsp; &nbsp;
-                      <select class="form-control" name="post_country" required="required">
+                      <select class="form-control" name="post_country" required>
                         <option value="">Select</option>
                         <?php    
 						$cdata = mysql_query("SELECT * FROM countrydata order by country") or die(mysql_error()); 

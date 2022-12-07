@@ -84,7 +84,7 @@ if(isset($_POST['edit_user']))
 	{
 		if(isset($_FILES['pic']) and ($_FILES['pic']['size']>0))
 		{ 
-			$hash=serialize(bin2hex(random_bytes(9)));
+			$hash=(bin2hex(random_bytes(9)));
 			if($pic!=''){del_pic('..'.$pic);}	
 			$dirPath = "../assets/user/{$_SESSION['pub_id']}/";
 			if (!file_exists("$dirPath")) 
@@ -277,7 +277,7 @@ $('#file_input_file').change(function ()
                     </div>
                     <div class="form-group">
                       <label >Country *</label>
-                      <select name="country" class="form-control" required="required" ><option class="col-md-12" value="">-- Select Location --</option>
+                      <select name="country" class="form-control" required ><option class="col-md-12" value="">-- Select Location --</option>
                       <?php $con = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM countrydata") or die(mysqli_error($GLOBALS["___mysqli_ston"])); 
 						while($cc = mysqli_fetch_array($con))
 						{ $sl='';
