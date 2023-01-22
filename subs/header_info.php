@@ -6,7 +6,11 @@ if($_SERVER['HTTP_HOST']=='localhost'){
 	$geo_region_code='NV';
 	$geo_cont= 'North America';
 }
+else if($_SERVER['SERVER_ADDR'] == '206.81.6.123'){
+	require_once('/var/www/vhosts/crweworld.com/httpdocs/geoip/location.php');
+}
 else{
+	
 	require_once('/var/www/html/vhosts/crweworld.com/public_html/geoip/location.php');
 }
 
@@ -54,7 +58,9 @@ else
 	$post_continent=txtcleaner($geo_cont);
 	$api_state=$geo_city.$spacer.strtoupper($geo_country);
 	$api_local=$geo_city;
-
+	if($geo_country == 'China'){
+	 exit();
+	}
 	/* header image */
 	$headerimg="";
 	if($post_country != "United States")

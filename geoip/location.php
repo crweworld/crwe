@@ -1,7 +1,13 @@
 <?php
 require_once 'vendor/autoload.php';
 use GeoIp2\Database\Reader;
+if($_SERVER['SERVER_ADDR'] == '206.81.6.123'){
+	$reader = new Reader('/var/www/vhosts/crweworld.com/GeoIP/GeoIP2-City_20160830/GeoIP2-City.mmdb');
+}
+else{
 $reader = new Reader('/usr/share/GeoIP/GeoIP2-City_20160830/GeoIP2-City.mmdb');
+}
+
 $record = $reader->city($_SERVER['REMOTE_ADDR']);
 $geo_country=$record->country->name; // 'United States'
 $geo_region=$record->mostSpecificSubdivision->name; // 'Minnesota'

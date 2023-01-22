@@ -7,6 +7,7 @@ if(isset($_GET['post_id']) and $_GET['post_id']=='1006258' )
 	header( "Location: /home" );
 	 exit();
 }
+
 //delete this line later
 include ('connect_me.php');
 $server_url = $_SERVER['REQUEST_URI'];
@@ -25,7 +26,7 @@ $url_sql=mysqli_fetch_array(mysqli_query($GLOBALS["___mysqli_ston"], "SELECT cou
 if($url_sql['count(*)']==1)
 {
 	$urlsql= mysqli_fetch_object(mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM local_news_old where post_url='$server_url' limit 1")) or die(mysqli_error($GLOBALS["___mysqli_ston"]));
-	if(isset($urlsql->post_title)){$newurl= mysqli_fetch_object(mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM posts where post_title='".mysqli_real_escape_string($GLOBALS["___mysqli_ston"], $urlsql->post_title)."' limit 1")) or die(mysqli_error($GLOBALS["___mysqli_ston"]));}	
+	if(isset($urlsql->post_title)){$newurl= mysqli_fetch_object(mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM $tbl where post_title='".mysqli_real_escape_string($GLOBALS["___mysqli_ston"], $urlsql->post_title)."' limit 1")) or die(mysqli_error($GLOBALS["___mysqli_ston"]));}	
 	header("HTTP/1.1 301 Moved Permanently");
 	header( "Location:$newurl->post_url" );
 	exit();
@@ -54,9 +55,16 @@ include('header_info.php');
 
 if(isset($_GET['post_id']) )
 {
-	$post_sql=mysqli_fetch_array(mysqli_query($GLOBALS["___mysqli_ston"], "SELECT count(*) FROM posts where post_id='{$_GET['post_id']}' and post_status='publish'")) or die(mysqli_error($GLOBALS["___mysqli_ston"]));
+	if($_GET['post_id'] > 2616255){
+		$tbl = 'posts';
+	}else if ( $_GET['post_id'] > 1841565 and $_GET['post_id'] < 2616256){
+		$tbl = 'posts_21to22';
+	}else if( $_GET['post_id'] > 15 and $_GET['post_id'] < 1841566){
+		$tbl = 'posts_14to20';
+	}
+	$post_sql=mysqli_fetch_array(mysqli_query($GLOBALS["___mysqli_ston"], "SELECT count(*) FROM $tbl where post_id='{$_GET['post_id']}' and post_status='publish'")) or die(mysqli_error($GLOBALS["___mysqli_ston"]));
 	notfound($post_sql['count(*)']);
-	$posts = mysqli_fetch_object(mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM posts where post_id='{$_GET['post_id']}' and post_status='publish' limit 1")) or die(mysqli_error($GLOBALS["___mysqli_ston"])); 
+	$posts = mysqli_fetch_object(mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM $tbl where post_id='{$_GET['post_id']}' and post_status='publish' limit 1")) or die(mysqli_error($GLOBALS["___mysqli_ston"])); 
 
 	$cat_sql=mysqli_fetch_array(mysqli_query($GLOBALS["___mysqli_ston"], "SELECT count(*) FROM category where cat_status='publish' and `cat_id`='$posts->cat_id' limit 1")) or die(mysqli_error($GLOBALS["___mysqli_ston"]));
 	notfound($cat_sql['count(*)']);
